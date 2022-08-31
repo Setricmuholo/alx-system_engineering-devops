@@ -1,2 +1,4 @@
 #!/bin/bash
-mv betty dirmy_first_directory
+cd /tmp
+touch betty
+mv betty ~/my_first_directory
