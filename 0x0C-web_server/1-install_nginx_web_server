@@ -22,5 +22,5 @@ server {
 EOL'
 
 # Restart Nginx
-sudo /etc/init.d/nginx restart
+service nginx start
 
