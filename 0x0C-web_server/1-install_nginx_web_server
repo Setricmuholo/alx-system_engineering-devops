@@ -7,20 +7,6 @@ sudo apt-get install nginx -y
 # Create a file with the "Hello World!" content
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Configure Nginx to listen on port 80 and serve the content from the file we created
-sudo bash -c 'cat >/etc/nginx/sites-available/default <<EOL
-server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-}
-EOL'
-
 # Restart Nginx
 service nginx start
 
