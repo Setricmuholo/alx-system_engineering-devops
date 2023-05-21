@@ -4,9 +4,9 @@
 #+    Distributes requests using a round-robin algorithm.
 
 sudo apt-get install -y software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-1.8
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
 sudo apt-get update
-sudo apt-get install -y haproxy=1.8.\*
+sudo apt-get install -y haproxy=2.0.\*
 
 echo "ENABLED=1" | sudo tee /etc/default/haproxy
 sudo mv /etc/haproxy/haproxy.cfg{,.original}
@@ -41,4 +41,5 @@ listen hbnb
     server 115631-web-02 18.233.63.199 check
 " | sudo tee /etc/haproxy/haproxy.cfg
 
-sudo service haproxy start
+sudo systemctl haproxy start
+sudo systemctl enable haproxy
